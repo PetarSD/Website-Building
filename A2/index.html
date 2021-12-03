@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2 - Website Building</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        #login-container {
+            width: 460px;
+            margin: 0 auto;
+        }
+
+        form label,
+        form input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        form input {
+            padding: 8px;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form div {
+            margin: 16px 0px;
+        }
+
+        p{
+            text-align: center;
+        }
+
+        i{
+            float:left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="login-container">
+
+        <form>
+            <div>
+                <label for="username">Username:</label>
+                <input id="username" type="text">
+            </div>
+
+            <div>
+                <label for="password">Password:</label>
+                <input id="password" type="password">
+            </div>
+
+            <input type="button" value="Login" onclick="validate()">
+        </form>
+    </div>
+
+    <i class="fas fa-check"></i>
+    <i class="fas fa-times"></i>
+
+    <script src="https://kit.fontawesome.com/856e906ecc.js" crossorigin="anonymous">
+        //Nisam sigoran kako da postavim ikonice na kraju input elementa za tacno i netacno unete podatke, ali verujem da sam vecinu uslova ispunio.
+    </script>
+
+    <script>
+        function validate() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username == "new_user") {
+                document.getElementById("username").style.border = "3px solid green";
+            }
+            else if (username == "") {
+                document.getElementById("username").style.border = "3px solid red";
+                var newParagraph = document.createElement("p");
+                var newContent = document.createTextNode("*Please enter username!");
+                newParagraph.appendChild(newContent);
+                document.body.appendChild(newParagraph);
+            }
+            else {
+                document.getElementById("username").style.border = "3px solid red";
+                var newParagraph = document.createElement("p");
+                var newContent = document.createTextNode("*Please enter valid username!");
+                newParagraph.appendChild(newContent);
+                document.body.appendChild(newParagraph);
+            }
+
+            if (password == "123456789") {
+                document.getElementById("password").style.border = "3px solid green";
+            }
+            else if (password == "") {
+                document.getElementById("password").style.border = "3px solid red";
+                var newParagraph = document.createElement("p");
+                var newContent = document.createTextNode("*Please enter password!");
+                newParagraph.appendChild(newContent);
+                document.body.appendChild(newParagraph);
+            }
+            else {
+                document.getElementById("password").style.border = "3px solid red";
+                var newParagraph = document.createElement("p");
+                var newContent = document.createTextNode("*Please enter valid password!");
+                newParagraph.appendChild(newContent);
+                document.body.appendChild(newParagraph);
+            }
+
+            if (username == "new_user" && password == "123456789") {
+                document.getElementById("username").style.border = "3px solid green";
+                document.getElementById("password").style.border = "3px solid green";
+                var newParagraph = document.createElement("p");
+                var newContent = document.createTextNode("Successful Login!");
+                newParagraph.appendChild(newContent);
+                document.body.appendChild(newParagraph);
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
